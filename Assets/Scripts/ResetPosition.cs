@@ -4,39 +4,30 @@ using UnityEngine;
 
 public class ResetPosition : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // This script is used to reset the positions of body and scalpel
     Vector3 initpos1;
-    Vector3 initpos2;
-    Vector3 initpos3;
-    Vector3 initpos4;
-    
+    public Quaternion originalRotationValue;
+    public GameObject body;
+    public GameObject knife;
    
-    public GameObject obj1;
-    public GameObject obj2;
-    public GameObject obj3;
-    public GameObject obj4;
   
     
 
-
+    /* Saving the initial positions*/
     public void Start()
     {
-        initpos1 = this.obj1.transform.position;
-        initpos2 = this.obj2.transform.position;
-        initpos3 = this.obj3.transform.position;
-        initpos4 = this.obj4.transform.position;
-        
-        
+        initpos1 = this.knife.transform.position; 
+        originalRotationValue = this.body.transform.rotation;
 
     }
 
     // Update is called once per frame
     public void Resetpos()
     {
-        this.obj1.transform.position = initpos1;
-        this.obj2.transform.position = initpos2;
-        this.obj3.transform.position = initpos3;
-        this.obj4.transform.position = initpos4;
+        
+        this.body.transform.rotation = Quaternion.Slerp(transform.rotation, originalRotationValue, Time.time * 1f); //rotate the body back to its initial position
+        this.knife.transform.position = initpos1;
+        
         
      
     }

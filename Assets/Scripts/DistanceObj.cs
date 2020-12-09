@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DistanceObj : MonoBehaviour
 
@@ -9,24 +10,19 @@ public class DistanceObj : MonoBehaviour
     public GameObject knife; ///knife
     public GameObject body; //body
     public GameObject tumor;
+    public Text change_text;
     
-
-    public float distance_main; // distance to body
     public string distance_string;
 
-    public GameObject[] objects_array;
-   // public List<float> distance_list = new List<float>(); //hold the game objects distance to the knife
+    public GameObject[] objects_array; //holds all the game objects tagged with "objects", which includes vessels
     public int size;
     public float distance_obj;
     public float distance_to_tumor;
 
 
-
     void Start()
     {
         objects_array = GameObject.FindGameObjectsWithTag("objects"); //put objects inside an array
-
-
     }
     
 
@@ -36,16 +32,15 @@ public class DistanceObj : MonoBehaviour
         
         size = objects_array.Length;
 
-        //distance_main = Vector3.Distance(knife.transform.position, body.transform.position);
+        
         distance_to_tumor = Vector3.Distance(knife.transform.position, tumor.transform.position);
 
-        /*if (distance_main<2)
-        {
-            Debug.Log("distance to the body is: " + distance_main + " High Risk!!");
-        }*/
+      
         if(distance_to_tumor < 2)
         {
-            Debug.Log("distance to the tumor is: " + distance_to_tumor + " High Risk!!");
+            Debug.Log("Distance to the tumor is: " + distance_to_tumor + " High Risk!!");
+            change_text.text = "Distance to the tumor is: " + distance_to_tumor + " High Risk!!";
+
             GetComponent<ChuckSubInstance>().RunCode(@"
 			        SinOsc foo => dac;
                     300 => foo.freq;
@@ -56,19 +51,21 @@ public class DistanceObj : MonoBehaviour
         }
         else
         {
-            //Debug.Log("distance to the body is: " + distance_main);
-            Debug.Log("distance to the tumor is: " + distance_to_tumor);
+            Debug.Log("Distance to the tumor is: " + distance_to_tumor);
+            change_text.text = "Distance to the tumor is: " + distance_to_tumor;
         }
 
 
         for (int i = 0; i < size; i++)
         {
             distance_obj = Vector3.Distance(knife.transform.position, objects_array[i].transform.position); 
-            Debug.Log("distance to object "+ objects_array[i].name+ " is: " + distance_obj);
+            Debug.Log("distance to "+ objects_array[i].name+ " is: " + distance_obj);
+            
 
-           if (distance_obj < 2)
+            if (distance_obj < 2)
             {
-                Debug.Log("distance to the object " + objects_array[i].name + " is: " + distance_obj + " high risk");
+                Debug.Log("distance to " + objects_array[i].name + " is: " + distance_obj + " high risk");
+                //change_text.text = "distance to " + objects_array[i].name + " is: " + distance_obj + " high risk";
 
                 GetComponent<ChuckSubInstance>().RunCode(@"
 			        SinOsc foo => dac;
@@ -78,11 +75,11 @@ public class DistanceObj : MonoBehaviour
 		         ");
 
             }
+           //change_text.text = "distance to " + objects_array[i].name + " is: " + distance_obj;
 
         }
         
-            //distance_arr[0] = Vector3.Distance(knife.transform.position, objects_array[0].transform.position);
-
+            
             
         /* distance_obj = Vector3.Distance(knife.transform.position, objects_array[2].transform.position);
          distance_obj2 = Vector3.Distance(knife.transform.position, objects_array[1].transform.position);
