@@ -11,9 +11,10 @@ public class rotatebody : MonoBehaviour
 
     public void Update()
     {
-        rotateVertical = joystick.Vertical * 1;
-        rotateHorizontal = joystick.Horizontal * -1;
+        rotateVertical = joystick.Vertical * -1;
+        rotateHorizontal = joystick.Horizontal * 1;
 
-        transform.Rotate(rotateVertical, 0, rotateHorizontal);
+        //transform.Rotate(rotateVertical, 0, rotateHorizontal);
+        transform.Rotate(rotateVertical, rotateHorizontal, 0);
     }
 }
