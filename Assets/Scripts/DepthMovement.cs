@@ -17,7 +17,7 @@ public class DepthMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             Vector3 objpos = transform.position;
-            objpos.z += 0.1f;
+            objpos.z += 0.05f;
             transform.position = objpos;
         }
 
@@ -25,7 +25,7 @@ public class DepthMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             Vector3 objpos = transform.position;
-            objpos.z -= 0.1f;
+            objpos.z -= 0.05f;
             transform.position = objpos;
         }
 

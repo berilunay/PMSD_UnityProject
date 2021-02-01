@@ -16,8 +16,15 @@ public class changeScene : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
-    
-    
-        
- 
+  
+
+    public void sonification2()
+    {
+        SceneManager.LoadScene("sonification2");
+    }
+
+
+
+
+
 }

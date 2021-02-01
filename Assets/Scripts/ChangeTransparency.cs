@@ -13,6 +13,7 @@ public class ChangeTransparency : MonoBehaviour
     public GameObject vessel_amnesic;
     public GameObject vessel_tree;
     public GameObject vessel_amnesic2;
+    public GameObject vessel_amnesic3;
 
 
 
@@ -24,6 +25,7 @@ public class ChangeTransparency : MonoBehaviour
         resetalpha(vessel_big.GetComponent<Renderer>().material);
         resetalpha(vessel_amnesic.GetComponent<Renderer>().material);
         resetalpha(vessel_amnesic2.GetComponent<Renderer>().material);
+        resetalpha(vessel_amnesic3.GetComponent<Renderer>().material);
         resetalpha(vessel_tree.GetComponent<Renderer>().material);
 
     }
@@ -36,6 +38,7 @@ public class ChangeTransparency : MonoBehaviour
         ChangeAlpha(vessel_big.GetComponent<Renderer>().material, alpha);
         ChangeAlpha(vessel_amnesic.GetComponent<Renderer>().material, alpha);
         ChangeAlpha(vessel_amnesic2.GetComponent<Renderer>().material, alpha);
+        ChangeAlpha(vessel_amnesic3.GetComponent<Renderer>().material, alpha);
         ChangeAlpha(vessel_tree.GetComponent<Renderer>().material, alpha);
     }
 
@@ -44,6 +47,7 @@ public class ChangeTransparency : MonoBehaviour
         resetalpha(vessel_big.GetComponent<Renderer>().material);
         resetalpha(vessel_amnesic.GetComponent<Renderer>().material);
         resetalpha(vessel_amnesic2.GetComponent<Renderer>().material);
+        resetalpha(vessel_amnesic3.GetComponent<Renderer>().material);
         resetalpha(vessel_tree.GetComponent<Renderer>().material);
         ChangeAlpha(body.GetComponent<Renderer>().material, alpha);
         ChangeAlpha(tumor.GetComponent<Renderer>().material, alpha);
