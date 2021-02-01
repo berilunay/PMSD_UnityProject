@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * This class controls the movement with keyboard
+ *
+ * 
+ */
+
 public class DepthMovement : MonoBehaviour
 {
     // Start is called before the first frame update

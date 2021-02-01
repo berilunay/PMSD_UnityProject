@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * This script is implemented for changing the transparency of tumors and vessels
+ * 
+ */
 public class ChangeTransparency : MonoBehaviour
 
 {

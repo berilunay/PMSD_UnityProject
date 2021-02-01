@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+/*
+ *This script controls the distance calculation and sonification
+ * for the closeview scene
+ * 
+ * 
+ */
+
 public class distanceNewSceneScript : MonoBehaviour
 
 {
@@ -15,22 +22,13 @@ public class distanceNewSceneScript : MonoBehaviour
     public AudioSource audio_last;
     public AudioSource audio_thunder;
     public AudioSource audio_rain;
-
     public AudioClip audio_last_clip;
     public AudioClip audio_thunder_clip;
-    //public AudioClip audio_rain_clip;
-
-
-
     public AudioLowPassFilter filter_low_pass_last;
     public AudioLowPassFilter filter_low_pass_rain;
     public AudioLowPassFilter filter_low_pass_tumor;
-
-
     public float standart_value_lpf = 5007;
 
-
-   
 
     void Start()
     {
@@ -39,17 +37,14 @@ public class distanceNewSceneScript : MonoBehaviour
         //audio_last.PlayOneShot(audio_last.clip);
         audio_rain.PlayOneShot(audio_rain.clip);
         audio_thunder.clip = audio_thunder_clip;
-        audio_last.clip = audio_last_clip;
-       //audio_rain.clip = audio_rain_clip;
+        audio_last.clip = audio_last_clip;  
         audio_thunder.Play();
         audio_last.Play();
-        //audio_rain.Play();
         audio_thunder.Pause();
         audio_rain.Pause();
         filter_low_pass_last=audio_last.GetComponent<AudioLowPassFilter>();
         filter_low_pass_rain = audio_rain.GetComponent<AudioLowPassFilter>();
-        filter_low_pass_last.cutoffFrequency = 5007;
-        
+        filter_low_pass_last.cutoffFrequency = 5007; //original default value for LPF
 
     }
 
@@ -73,23 +68,15 @@ public class distanceNewSceneScript : MonoBehaviour
             filter_low_pass_rain.cutoffFrequency = 5007- distance_tumor * 750;
            
 
-
             if (distance_tumor >2.20 && distance_tumor <= 3.0)
             {
                 filter_low_pass_rain.cutoffFrequency =5007- distance_tumor * 400;
-        
             }
 
             if (distance_tumor >= 2.01 && distance_tumor <= 2.20)
-            {
-                
+            {   
                filter_low_pass_rain.cutoffFrequency = standart_value_lpf;
-           
             }
-
-
-
-
 
             Debug.Log("you are in range 2-3");
 
@@ -102,7 +89,6 @@ public class distanceNewSceneScript : MonoBehaviour
             audio_last.Pause();
             audio_thunder.UnPause();
             
-           
         }
 
         else
@@ -126,13 +112,9 @@ public class distanceNewSceneScript : MonoBehaviour
             
         }
 
-           
-           
-        }
-            
-
-
     }
+
+}
       
         
 

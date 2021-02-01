@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Script for zooming in and out with mouse scrollwheel
+ * 
+ */
+
 public class zoomCamera : MonoBehaviour
 {
     // Start is called before the first frame update

@@ -12,40 +12,24 @@ public class distancesonification : MonoBehaviour
     public GameObject tumor_new;
     public Text change_text_new;
     public float distance_tumor;
-    public AudioSource audio_last;
-    public AudioSource audio_thunder;
-    public AudioSource audio_rain;
-
-    public AudioClip audio_last_clip;
-    public AudioClip audio_thunder_clip;
-    //public AudioClip audio_rain_clip;
-
-
-
-
-
-
+    public AudioSource audio_last;//defines the audio for last layer around the tumor
+    public AudioSource audio_thunder;//defines the audio for the closest layer around the tumor
+    public AudioSource audio_rain;//defines the audio for middle layer around the tumor
+    public AudioClip audio_last_clip; //audio clip of last layer
+    public AudioClip audio_thunder_clip;//audio clip of the closest layer
     public float standart_value_lpf = 5007;
-
-
 
 
     void Start()
     {
 
-        //audio_thunder.PlayOneShot(audio_thunder.clip);
-        //audio_last.PlayOneShot(audio_last.clip);
         audio_rain.PlayOneShot(audio_rain.clip);
         audio_thunder.clip = audio_thunder_clip;
         audio_last.clip = audio_last_clip;
-        //audio_rain.clip = audio_rain_clip;
         audio_thunder.Play();
         audio_last.Play();
-        //audio_rain.Play();
         audio_thunder.Pause();
         audio_rain.Pause();
-       
-
 
     }
 
@@ -76,7 +60,6 @@ public class distancesonification : MonoBehaviour
             audio_rain.Pause();
             audio_last.Pause();
             audio_thunder.UnPause();
-
 
         }
 

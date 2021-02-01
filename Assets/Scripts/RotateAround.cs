@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Test code for trying to rotate object via mouse. (CURRENTLY NOT USED IN THİS PROJECT)
+ * 
+ */
+
 public class RotateAround : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -22,9 +27,6 @@ public class RotateAround : MonoBehaviour
             RaycastHit hit;
 
             Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit);
-            //ourObject = hit.collider.gameObject ;
-            //Debug.Log("hit: " + hit.point);
-
             object_selected_name = hit.transform.gameObject.name;
             selected_obj_name = selected_obj.name;
 

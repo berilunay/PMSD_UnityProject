@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/*
+ * Script for changing the scenes
+ * 
+ */
 public class changeScene : MonoBehaviour
 {
     // Start is called before the first frame update

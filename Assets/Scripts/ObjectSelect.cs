@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * Script for detecting the object selected
+ */
 public class ObjectSelect : MonoBehaviour
 {
     public string object_name;
